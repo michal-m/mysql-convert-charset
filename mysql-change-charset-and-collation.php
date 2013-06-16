@@ -20,3 +20,16 @@ if ($dbl->query($query) !== TRUE) {
     echo 'Failed to ALTER `' . $DB_NAME . '` database.';
     exit(1);
 }
+
+// Updating Tables
+$result = $dbl->query('SHOW TABLES');
+
+while ($row = $result->fetch_row()) {
+    $TBL_NAME = $row[0];
+    $query = 'ALTER TABLE `' . $TBL_NAME . '` CONVERT TO CHARACTER SET ' . $CHARSET . ' COLLATE ' . $COLLATION;
+
+    if ($dbl->query($query) !== TRUE) {
+        echo 'Failed to ALTER `' . $TBL_NAME . '` table.';
+        exit(1);
+    }
+}
