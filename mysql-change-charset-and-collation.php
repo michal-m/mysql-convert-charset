@@ -6,7 +6,7 @@ require 'config.php';
 $dbl = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 
 if ($dbl->connect_errno) {
-    echo "Failed to connect to MySQL: (" . $dbl->connect_errno . ") " . $dbl->connect_error;
+    echo 'Failed to connect to MySQL: (' . $dbl->connect_errno . ') ' . $dbl->connect_error;
     exit(1);
 }
 
@@ -22,10 +22,10 @@ if ($dbl->query($query) !== TRUE) {
 }
 
 // Updating Tables
-$result = $dbl->query('SHOW TABLES');
+$result_tables = $dbl->query('SHOW TABLES');
 
-while ($row = $result->fetch_row()) {
-    $TBL_NAME = $row[0];
+while ($row_tables = $result_tables->fetch_row()) {
+    $TBL_NAME = $row_tables[0];
     $query = 'ALTER TABLE `' . $TBL_NAME . '` CONVERT TO CHARACTER SET ' . $CHARSET . ' COLLATE ' . $COLLATION;
 
     if ($dbl->query($query) !== TRUE) {
