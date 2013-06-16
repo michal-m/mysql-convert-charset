@@ -1,6 +1,6 @@
 <?php
 
-$COLLATION  = 'utf8_generic_ci';
+$COLLATION  = 'utf8_general_ci';
 $CHARSET    = 'utf8';
 
 $DB_HOST        = '';
