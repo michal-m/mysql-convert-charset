@@ -1,6 +1,5 @@
 <?php
 header('Content-Type: text/plain');
-
 require 'config.php';
 
 $dbl = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
@@ -22,6 +21,7 @@ if ($dbl->query($query) !== TRUE) {
 }
 
 // Updating Tables
+// Using CONVERT TO converts columns too
 $result_tables = $dbl->query('SHOW TABLES');
 
 while ($row_tables = $result_tables->fetch_row()) {
