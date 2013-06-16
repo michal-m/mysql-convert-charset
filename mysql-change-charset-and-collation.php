@@ -12,3 +12,11 @@ if ($dbl->connect_errno) {
 
 $CHARSET    = $dbl->real_escape_string($CHARSET);
 $COLLATION  = $dbl->real_escape_string($COLLATION);
+
+// Updating Database
+$query = 'ALTER DATABASE `' . $DB_NAME . '` CHARACTER SET = ' . $CHARSET . ' COLLATE = ' . $COLLATION;
+
+if ($dbl->query($query) !== TRUE) {
+    echo 'Failed to ALTER `' . $DB_NAME . '` database.';
+    exit(1);
+}
