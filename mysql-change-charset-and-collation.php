@@ -36,6 +36,13 @@ while ($row_tables = $result_tables->fetch_row()) {
     $query = 'ALTER TABLE `' . $TBL_NAME . '` CONVERT TO CHARACTER SET ' . $CHARSET . ' COLLATE ' . $COLLATION;
 
     if ($dbl->query($query) !== TRUE) {
+        echo 'Failed to ALTER CONVERT TO `' . $TBL_NAME . '` table.';
+        exit(1);
+    }
+
+    $query = 'ALTER TABLE `' . $TBL_NAME . '` DEFAULT CHARACTER SET ' . $CHARSET . ' COLLATE ' . $COLLATION;
+
+    if ($dbl->query($query) !== TRUE) {
         echo 'Failed to ALTER `' . $TBL_NAME . '` table.';
         exit(1);
     }
