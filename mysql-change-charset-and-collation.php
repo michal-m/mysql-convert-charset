@@ -1,6 +1,5 @@
+#!/usr/bin/env php
 <?php
-header('Content-Type: text/plain');
-
 set_time_limit(0);
 require 'config.php';
 
