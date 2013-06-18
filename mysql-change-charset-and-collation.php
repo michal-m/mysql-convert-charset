@@ -16,7 +16,7 @@ $COLLATION  = $dbl->real_escape_string($COLLATION);
 $DB_NAME    = $dbl->real_escape_string($DB_NAME);
 
 // Updating Database
-$query = 'ALTER DATABASE `' . $DB_NAME . '` CHARACTER SET = ' . $CHARSET . ' COLLATE = ' . $COLLATION;
+$query = 'ALTER DATABASE `' . $DB_NAME . '` CHARACTER SET ' . $CHARSET . ' COLLATE ' . $COLLATION;
 
 if ($dbl->query($query) !== TRUE) {
     echo 'Failed to ALTER `' . $DB_NAME . '` database.';
