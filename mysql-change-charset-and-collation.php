@@ -1,5 +1,7 @@
 <?php
 header('Content-Type: text/plain');
+
+set_time_limit(0);
 require 'config.php';
 
 $dbl = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
